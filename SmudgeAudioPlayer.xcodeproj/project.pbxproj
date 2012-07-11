@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5AD8D4C15AE398900B1FF66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AD8D4B15AE398900B1FF66 /* UIKit.framework */; };
+		E5AD8D4E15AE398900B1FF66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AD8D4D15AE398900B1FF66 /* Foundation.framework */; };
+		E5AD8D5015AE398900B1FF66 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AD8D4F15AE398900B1FF66 /* CoreGraphics.framework */; };
+		E5AD8D5615AE398900B1FF66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5AD8D5415AE398900B1FF66 /* InfoPlist.strings */; };
+		E5AD8D5815AE398900B1FF66 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD8D5715AE398900B1FF66 /* main.m */; };
+		E5AD8D5C15AE398900B1FF66 /* SmudgeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD8D5B15AE398900B1FF66 /* SmudgeAppDelegate.m */; };
+		E5AD8D5F15AE398900B1FF66 /* SmudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD8D5E15AE398900B1FF66 /* SmudgeViewController.m */; };
+		E5AD8D6215AE398900B1FF66 /* SmudgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5AD8D6015AE398900B1FF66 /* SmudgeViewController.xib */; };
+		E5AD8D6A15AE39B100B1FF66 /* SmudgeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AD8D6915AE39B100B1FF66 /* SmudgeManager.m */; };
+		E5AD8D6C15AE39C900B1FF66 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AD8D6B15AE39C900B1FF66 /* AVFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E5AD8D4715AE398900B1FF66 /* SmudgeAudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmudgeAudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5AD8D4B15AE398900B1FF66 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E5AD8D4D15AE398900B1FF66 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E5AD8D4F15AE398900B1FF66 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E5AD8D5315AE398900B1FF66 /* SmudgeAudioPlayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmudgeAudioPlayer-Info.plist"; sourceTree = "<group>"; };
+		E5AD8D5515AE398900B1FF66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E5AD8D5715AE398900B1FF66 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E5AD8D5915AE398900B1FF66 /* SmudgeAudioPlayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmudgeAudioPlayer-Prefix.pch"; sourceTree = "<group>"; };
+		E5AD8D5A15AE398900B1FF66 /* SmudgeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmudgeAppDelegate.h; sourceTree = "<group>"; };
+		E5AD8D5B15AE398900B1FF66 /* SmudgeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmudgeAppDelegate.m; sourceTree = "<group>"; };
+		E5AD8D5D15AE398900B1FF66 /* SmudgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SmudgeViewController.h; sourceTree = "<group>"; };
+		E5AD8D5E15AE398900B1FF66 /* SmudgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmudgeViewController.m; sourceTree = "<group>"; };
+		E5AD8D6115AE398900B1FF66 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SmudgeViewController.xib; sourceTree = "<group>"; };
+		E5AD8D6815AE39B100B1FF66 /* SmudgeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmudgeManager.h; sourceTree = "<group>"; };
+		E5AD8D6915AE39B100B1FF66 /* SmudgeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmudgeManager.m; sourceTree = "<group>"; };
+		E5AD8D6B15AE39C900B1FF66 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5AD8D4415AE398900B1FF66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5AD8D6C15AE39C900B1FF66 /* AVFoundation.framework in Frameworks */,
+				E5AD8D4C15AE398900B1FF66 /* UIKit.framework in Frameworks */,
+				E5AD8D4E15AE398900B1FF66 /* Foundation.framework in Frameworks */,
+				E5AD8D5015AE398900B1FF66 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E5AD8D3C15AE398900B1FF66 = {
+			isa = PBXGroup;
+			children = (
+				E5AD8D6B15AE39C900B1FF66 /* AVFoundation.framework */,
+				E5AD8D5115AE398900B1FF66 /* SmudgeAudioPlayer */,
+				E5AD8D4A15AE398900B1FF66 /* Frameworks */,
+				E5AD8D4815AE398900B1FF66 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E5AD8D4815AE398900B1FF66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5AD8D4715AE398900B1FF66 /* SmudgeAudioPlayer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5AD8D4A15AE398900B1FF66 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5AD8D4B15AE398900B1FF66 /* UIKit.framework */,
+				E5AD8D4D15AE398900B1FF66 /* Foundation.framework */,
+				E5AD8D4F15AE398900B1FF66 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5AD8D5115AE398900B1FF66 /* SmudgeAudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				E5AD8D5A15AE398900B1FF66 /* SmudgeAppDelegate.h */,
+				E5AD8D5B15AE398900B1FF66 /* SmudgeAppDelegate.m */,
+				E5AD8D5D15AE398900B1FF66 /* SmudgeViewController.h */,
+				E5AD8D5E15AE398900B1FF66 /* SmudgeViewController.m */,
+				E5AD8D6015AE398900B1FF66 /* SmudgeViewController.xib */,
+				E5AD8D5215AE398900B1FF66 /* Supporting Files */,
+				E5AD8D6815AE39B100B1FF66 /* SmudgeManager.h */,
+				E5AD8D6915AE39B100B1FF66 /* SmudgeManager.m */,
+			);
+			path = SmudgeAudioPlayer;
+			sourceTree = "<group>";
+		};
+		E5AD8D5215AE398900B1FF66 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5AD8D5315AE398900B1FF66 /* SmudgeAudioPlayer-Info.plist */,
+				E5AD8D5415AE398900B1FF66 /* InfoPlist.strings */,
+				E5AD8D5715AE398900B1FF66 /* main.m */,
+				E5AD8D5915AE398900B1FF66 /* SmudgeAudioPlayer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5AD8D4615AE398900B1FF66 /* SmudgeAudioPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5AD8D6515AE398900B1FF66 /* Build configuration list for PBXNativeTarget "SmudgeAudioPlayer" */;
+			buildPhases = (
+				E5AD8D4315AE398900B1FF66 /* Sources */,
+				E5AD8D4415AE398900B1FF66 /* Frameworks */,
+				E5AD8D4515AE398900B1FF66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmudgeAudioPlayer;
+			productName = SmudgeAudioPlayer;
+			productReference = E5AD8D4715AE398900B1FF66 /* SmudgeAudioPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5AD8D3E15AE398900B1FF66 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Smudge;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = E5AD8D4115AE398900B1FF66 /* Build configuration list for PBXProject "SmudgeAudioPlayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E5AD8D3C15AE398900B1FF66;
+			productRefGroup = E5AD8D4815AE398900B1FF66 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5AD8D4615AE398900B1FF66 /* SmudgeAudioPlayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5AD8D4515AE398900B1FF66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5AD8D5615AE398900B1FF66 /* InfoPlist.strings in Resources */,
+				E5AD8D6215AE398900B1FF66 /* SmudgeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5AD8D4315AE398900B1FF66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5AD8D5815AE398900B1FF66 /* main.m in Sources */,
+				E5AD8D5C15AE398900B1FF66 /* SmudgeAppDelegate.m in Sources */,
+				E5AD8D5F15AE398900B1FF66 /* SmudgeViewController.m in Sources */,
+				E5AD8D6A15AE39B100B1FF66 /* SmudgeManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E5AD8D5415AE398900B1FF66 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5AD8D5515AE398900B1FF66 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E5AD8D6015AE398900B1FF66 /* SmudgeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5AD8D6115AE398900B1FF66 /* en */,
+			);
+			name = SmudgeViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E5AD8D6315AE398900B1FF66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E5AD8D6415AE398900B1FF66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5AD8D6615AE398900B1FF66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmudgeAudioPlayer/SmudgeAudioPlayer-Prefix.pch";
+				INFOPLIST_FILE = "SmudgeAudioPlayer/SmudgeAudioPlayer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E5AD8D6715AE398900B1FF66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SmudgeAudioPlayer/SmudgeAudioPlayer-Prefix.pch";
+				INFOPLIST_FILE = "SmudgeAudioPlayer/SmudgeAudioPlayer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5AD8D4115AE398900B1FF66 /* Build configuration list for PBXProject "SmudgeAudioPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5AD8D6315AE398900B1FF66 /* Debug */,
+				E5AD8D6415AE398900B1FF66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5AD8D6515AE398900B1FF66 /* Build configuration list for PBXNativeTarget "SmudgeAudioPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5AD8D6615AE398900B1FF66 /* Debug */,
+				E5AD8D6715AE398900B1FF66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5AD8D3E15AE398900B1FF66 /* Project object */;
+}
