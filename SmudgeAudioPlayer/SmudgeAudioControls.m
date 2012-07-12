@@ -177,7 +177,6 @@
 }
 
 - (IBAction)sliderBegin:(id)sender {    
-    NSLog(@"here");
     [audioPlayer removeTimeObserver:self.sliderObserver];
 }
 
