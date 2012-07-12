@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SmudgeViewController : UIViewController
+- (IBAction)changeSong:(id)sender;
 
 @end

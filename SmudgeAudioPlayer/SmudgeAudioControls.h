@@ -15,7 +15,8 @@
 
 #pragma mark - Instance Variables
 @property (nonatomic, strong) AVPlayer *audioPlayer;
-@property (nonatomic, strong) id timeObserver;
+@property (nonatomic, strong) id sliderObserver;
+@property (nonatomic, strong) id timeProgressObserver;
 
 #pragma mark - IBOutlets
 @property (unsafe_unretained, nonatomic) IBOutlet UILabel *totalTimeLabel;

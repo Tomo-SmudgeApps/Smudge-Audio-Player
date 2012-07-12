@@ -19,17 +19,37 @@
 @synthesize playbackSlider;
 @synthesize playButton;
 @synthesize audioPlayer;
-@synthesize timeObserver;
+@synthesize sliderObserver;
+@synthesize timeProgressObserver;
 
-- (void) addAudioTimeObserver{
+- (void) addAudioSliderObserver{
     CMTime interval = CMTimeMake(33, 1000);
-    self.timeObserver = [audioPlayer addPeriodicTimeObserverForInterval:interval queue:dispatch_get_current_queue() usingBlock:^(CMTime time){
+    self.sliderObserver = [audioPlayer addPeriodicTimeObserverForInterval:interval queue:dispatch_get_current_queue() usingBlock:^(CMTime time){
         CMTime endTime = CMTimeConvertScale (audioPlayer.currentItem.asset.duration, audioPlayer.currentTime.timescale, kCMTimeRoundingMethod_RoundHalfAwayFromZero);
         if (CMTimeCompare(endTime, kCMTimeZero) != 0) {
             //Figure out the percentage
             double normalizedTime = (double) audioPlayer.currentTime.value / (double) endTime.value;
             playbackSlider.value = normalizedTime;
         }
+    }];
+}
+
+-(void) addAudioProgressOverver{
+    CMTime updateInterval = CMTimeMake(1, 1);
+    
+    __block float totalPlayingSeconds = totalTimeInSeconds;
+    self.timeProgressObserver = [audioPlayer addPeriodicTimeObserverForInterval:updateInterval queue:dispatch_get_current_queue() usingBlock:^(CMTime time){
+        
+        int currentTime = CMTimeGetSeconds(audioPlayer.currentTime);
+        
+        int minutesLeft = (totalPlayingSeconds - currentTime)/60;
+        int secondsLeft = (totalPlayingSeconds - currentTime)-(minutesLeft * 60);
+        
+        int progressedMinutes = currentTime/60;
+        int progressedSeconds = currentTime-(progressedMinutes * 60);
+        
+        totalTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d", progressedMinutes, progressedSeconds];
+        playThroughLabel.text = [NSString stringWithFormat:@"-%02d:%02d", minutesLeft, secondsLeft];
     }];
 }
 
@@ -44,8 +64,8 @@
         int minutes = totalTimeInSeconds/60;
         int seconds = totalTimeInSeconds-(minutes * 60);
         
-        totalTimeLabel.text = @"0:00";
-        playThroughLabel.text = [NSString stringWithFormat:@"-%d:%d", minutes, seconds];
+        totalTimeLabel.text = @"00:00";
+        playThroughLabel.text = [NSString stringWithFormat:@"-%02d:%02d", minutes, seconds];
     }
 }
 
@@ -57,10 +77,42 @@
     [audioPlayer seekToTime:CMTimeMake(0.0, 1)];
 }
 
+-(void) changeAudioSrc:(NSNotification *)notification{
+    
+    [audioPlayer pause];
+    
+    NSString *newSource = notification.object;
+    
+    if ([newSource isKindOfClass:[NSString class]]) {
+        //Reset all the values
+        playButton.selected = NO;
+        playbackSlider.value = 0.0;
+        [self.audioPlayer removeObserver:self forKeyPath:@"status"];
+        
+        //Remove all the time observers
+        [audioPlayer removeTimeObserver:self.sliderObserver];
+        self.sliderObserver = nil;
+        
+        [audioPlayer removeTimeObserver:self.timeProgressObserver];
+        self.timeProgressObserver = nil;
+        
+        //Release the player and allocate a new one
+        self.audioPlayer = nil;
+        self.audioPlayer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:newSource]];
+        playButton.enabled = NO;
+        
+        //Reset each player state
+        totalTimeLabel.text = @"";
+        playThroughLabel.text = @"Loading...";
+        [self.audioPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
+    }
+}
+
 #pragma mark - Initialization
 -(void) localInit{
     
     //Add the observers
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAudioSrc:) name:@"ChangeAudioSrc" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishedPlayingNotification) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     
     //Modify the slider graphics
@@ -72,7 +124,6 @@
     
     totalTimeLabel.text = @"";
     playThroughLabel.text = @"Loading...";
-    [self.audioPlayer addObserver:self forKeyPath:@"currentTime" options:0 context:nil];
     [self.audioPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
 }
 
@@ -95,30 +146,14 @@
         
         if (audioPlayer.rate == 0.0) {
                   
-            [audioPlayer removeTimeObserver:self.timeObserver];
-            [self addAudioTimeObserver];
-            
-            CMTime updateInterval = CMTimeMake(1, 1);
-                        
-            __block float totalPlayingSeconds = totalTimeInSeconds;
-            [audioPlayer addPeriodicTimeObserverForInterval:updateInterval queue:dispatch_get_current_queue() usingBlock:^(CMTime time){
-                
-                int currentTime = CMTimeGetSeconds(audioPlayer.currentTime);
-                
-                int minutesLeft = (totalPlayingSeconds - currentTime)/60;
-                int secondsLeft = (totalPlayingSeconds - currentTime)-(minutesLeft * 60);
-                
-                int progressedMinutes = currentTime/60;
-                int progressedSeconds = currentTime-(progressedMinutes * 60);
-                
-                totalTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d", progressedMinutes, progressedSeconds];
-                playThroughLabel.text = [NSString stringWithFormat:@"-%02d:%02d", minutesLeft, secondsLeft];
-            }];
+            [audioPlayer removeTimeObserver:self.sliderObserver];
+            [self addAudioSliderObserver];
+            [self addAudioProgressOverver];
             
             [audioPlayer play];
         }
         else{
-            [audioPlayer removeTimeObserver:self.timeObserver];
+            [audioPlayer removeTimeObserver:self.sliderObserver];
             [audioPlayer pause];
         }
     }
@@ -132,7 +167,7 @@
 - (IBAction)sliderUpdated:(id)sender {
     [audioPlayer pause];
     
-    [self addAudioTimeObserver];
+    [self addAudioSliderObserver];
     
     [audioPlayer seekToTime:CMTimeMake(playbackSlider.value * totalTimeInSeconds, 1)];
     
@@ -143,7 +178,7 @@
 
 - (IBAction)sliderBegin:(id)sender {    
     NSLog(@"here");
-    [audioPlayer removeTimeObserver:self.timeObserver];
+    [audioPlayer removeTimeObserver:self.sliderObserver];
 }
 
 @end
