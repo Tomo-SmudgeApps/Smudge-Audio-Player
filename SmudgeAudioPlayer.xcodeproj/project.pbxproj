@@ -31,6 +31,9 @@
 		E5AD8D8C15AE3C5200B1FF66 /* SoundIconPlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5AD8D7E15AE3C5200B1FF66 /* SoundIconPlay@2x.png */; };
 		E5AD8D8D15AE3C5200B1FF66 /* Tracker.png in Resources */ = {isa = PBXBuildFile; fileRef = E5AD8D7F15AE3C5200B1FF66 /* Tracker.png */; };
 		E5AD8D8E15AE3C5200B1FF66 /* Tracker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5AD8D8015AE3C5200B1FF66 /* Tracker@2x.png */; };
+		E5C4329615AE3EF9001655C0 /* SmudgeAudioControls.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C4329415AE3EF9001655C0 /* SmudgeAudioControls.m */; };
+		E5C4329715AE3EF9001655C0 /* SmudgeAudioControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C4329515AE3EF9001655C0 /* SmudgeAudioControls.xib */; };
+		E5C432A515AE5114001655C0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C432A415AE5114001655C0 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,10 @@
 		E5AD8D7E15AE3C5200B1FF66 /* SoundIconPlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SoundIconPlay@2x.png"; sourceTree = "<group>"; };
 		E5AD8D7F15AE3C5200B1FF66 /* Tracker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tracker.png; sourceTree = "<group>"; };
 		E5AD8D8015AE3C5200B1FF66 /* Tracker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tracker@2x.png"; sourceTree = "<group>"; };
+		E5C4329315AE3EF9001655C0 /* SmudgeAudioControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmudgeAudioControls.h; sourceTree = "<group>"; };
+		E5C4329415AE3EF9001655C0 /* SmudgeAudioControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmudgeAudioControls.m; sourceTree = "<group>"; };
+		E5C4329515AE3EF9001655C0 /* SmudgeAudioControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmudgeAudioControls.xib; sourceTree = "<group>"; };
+		E5C432A415AE5114001655C0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C432A515AE5114001655C0 /* CoreMedia.framework in Frameworks */,
 				E5AD8D6C15AE39C900B1FF66 /* AVFoundation.framework in Frameworks */,
 				E5AD8D4C15AE398900B1FF66 /* UIKit.framework in Frameworks */,
 				E5AD8D4E15AE398900B1FF66 /* Foundation.framework in Frameworks */,
@@ -84,6 +92,7 @@
 		E5AD8D3C15AE398900B1FF66 = {
 			isa = PBXGroup;
 			children = (
+				E5C432A415AE5114001655C0 /* CoreMedia.framework */,
 				E5AD8D6B15AE39C900B1FF66 /* AVFoundation.framework */,
 				E5AD8D5115AE398900B1FF66 /* SmudgeAudioPlayer */,
 				E5AD8D4A15AE398900B1FF66 /* Frameworks */,
@@ -120,6 +129,9 @@
 				E5AD8D5215AE398900B1FF66 /* Supporting Files */,
 				E5AD8D6815AE39B100B1FF66 /* SmudgeManager.h */,
 				E5AD8D6915AE39B100B1FF66 /* SmudgeManager.m */,
+				E5C4329315AE3EF9001655C0 /* SmudgeAudioControls.h */,
+				E5C4329415AE3EF9001655C0 /* SmudgeAudioControls.m */,
+				E5C4329515AE3EF9001655C0 /* SmudgeAudioControls.xib */,
 			);
 			path = SmudgeAudioPlayer;
 			sourceTree = "<group>";
@@ -224,6 +236,7 @@
 				E5AD8D8C15AE3C5200B1FF66 /* SoundIconPlay@2x.png in Resources */,
 				E5AD8D8D15AE3C5200B1FF66 /* Tracker.png in Resources */,
 				E5AD8D8E15AE3C5200B1FF66 /* Tracker@2x.png in Resources */,
+				E5C4329715AE3EF9001655C0 /* SmudgeAudioControls.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +251,7 @@
 				E5AD8D5C15AE398900B1FF66 /* SmudgeAppDelegate.m in Sources */,
 				E5AD8D5F15AE398900B1FF66 /* SmudgeViewController.m in Sources */,
 				E5AD8D6A15AE39B100B1FF66 /* SmudgeManager.m in Sources */,
+				E5C4329615AE3EF9001655C0 /* SmudgeAudioControls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

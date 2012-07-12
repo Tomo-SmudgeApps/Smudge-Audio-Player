@@ -7,6 +7,7 @@
 //
 
 #import "SmudgeViewController.h"
+#import "SmudgeAudioControls.h"
 
 @interface SmudgeViewController ()
 
@@ -18,6 +19,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    SmudgeAudioControls *newControl = [SmudgeAudioControls newControls];
+    newControl.center = self.view.center;
+    [self.view addSubview:newControl];
 }
 
 - (void)viewDidUnload
