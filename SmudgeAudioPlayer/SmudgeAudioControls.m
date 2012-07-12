@@ -94,11 +94,12 @@
         playButton.selected = !playButton.selected;
         
         if (audioPlayer.rate == 0.0) {
-                        
+                  
+            [audioPlayer removeTimeObserver:self.timeObserver];
             [self addAudioTimeObserver];
             
             CMTime updateInterval = CMTimeMake(1, 1);
-            
+                        
             __block float totalPlayingSeconds = totalTimeInSeconds;
             [audioPlayer addPeriodicTimeObserverForInterval:updateInterval queue:dispatch_get_current_queue() usingBlock:^(CMTime time){
                 
@@ -130,11 +131,19 @@
 
 - (IBAction)sliderUpdated:(id)sender {
     [audioPlayer pause];
+    
+    [self addAudioTimeObserver];
+    
     [audioPlayer seekToTime:CMTimeMake(playbackSlider.value * totalTimeInSeconds, 1)];
     
     if (playButton.selected) {
         [audioPlayer play];
     }
+}
+
+- (IBAction)sliderBegin:(id)sender {    
+    NSLog(@"here");
+    [audioPlayer removeTimeObserver:self.timeObserver];
 }
 
 @end

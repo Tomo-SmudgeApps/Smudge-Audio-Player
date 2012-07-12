@@ -33,5 +33,6 @@
 #pragma mark - IBActions
 - (IBAction)togglePlayStatus:(id)sender;
 - (IBAction)sliderUpdated:(id)sender;
+- (IBAction)sliderBegin:(id)sender;
 
 @end
