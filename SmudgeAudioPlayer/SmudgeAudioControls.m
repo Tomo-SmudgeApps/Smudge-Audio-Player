@@ -18,6 +18,7 @@
 @synthesize playThroughLabel;
 @synthesize playbackSlider;
 @synthesize playButton;
+@synthesize playerBackground;
 @synthesize audioPlayer;
 @synthesize sliderObserver;
 @synthesize timeProgressObserver;
@@ -121,6 +122,8 @@
     //Just a local version. We can change this easily
     self.audioPlayer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:@"http://promodj.com/download/3430355/Flo_Rida_vs_Kalwi_Made_in_Whistle_DJ_Style_Mash_Up.mp3"]];
     playButton.enabled = NO;
+    
+    [playerBackground.layer setCornerRadius:5.0];
     
     totalTimeLabel.text = @"";
     playThroughLabel.text = @"Loading...";

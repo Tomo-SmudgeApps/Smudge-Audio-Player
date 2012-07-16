@@ -10,6 +10,7 @@
 #import <AVFoundation/AVPlayer.h>
 #import <AVFoundation/AVPlayerItem.h>
 #import <AVFoundation/AVAsset.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface SmudgeAudioControls : UIView
 
@@ -23,6 +24,7 @@
 @property (unsafe_unretained, nonatomic) IBOutlet UILabel *playThroughLabel;
 @property (unsafe_unretained, nonatomic) IBOutlet UISlider *playbackSlider;
 @property (unsafe_unretained, nonatomic) IBOutlet UIButton *playButton;
+@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *playerBackground;
 
 #pragma mark - Static Methods
 +(SmudgeAudioControls *) newControls;
