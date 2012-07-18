@@ -37,5 +37,6 @@
 - (IBAction)togglePlayStatus:(id)sender;
 - (IBAction)sliderUpdated:(id)sender;
 - (IBAction)sliderBegin:(id)sender;
+- (void) stopPlaying;
 
 @end

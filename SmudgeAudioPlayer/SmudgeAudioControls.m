@@ -25,7 +25,12 @@
 
 - (void) addAudioSliderObserver{
     CMTime interval = CMTimeMake(33, 1000);
-    self.sliderObserver = [audioPlayer addPeriodicTimeObserverForInterval:interval queue:dispatch_get_current_queue() usingBlock:^(CMTime time){
+    
+    if (self.sliderObserver) {
+        [audioPlayer removeTimeObserver:sliderObserver];
+        self.sliderObserver = nil;
+    }
+    self.sliderObserver = [audioPlayer addPeriodicTimeObserverForInterval:interval queue:NULL usingBlock:^(CMTime time){
         CMTime endTime = CMTimeConvertScale (audioPlayer.currentItem.asset.duration, audioPlayer.currentTime.timescale, kCMTimeRoundingMethod_RoundHalfAwayFromZero);
         if (CMTimeCompare(endTime, kCMTimeZero) != 0) {
             //Figure out the percentage
@@ -39,7 +44,12 @@
     CMTime updateInterval = CMTimeMake(1, 1);
     
     __block float totalPlayingSeconds = totalTimeInSeconds;
-    self.timeProgressObserver = [audioPlayer addPeriodicTimeObserverForInterval:updateInterval queue:dispatch_get_current_queue() usingBlock:^(CMTime time){
+    
+    if (self.timeProgressObserver) {
+        [audioPlayer removeTimeObserver:timeProgressObserver];
+        self.timeProgressObserver = nil;
+    }
+    self.timeProgressObserver = [audioPlayer addPeriodicTimeObserverForInterval:updateInterval queue:NULL usingBlock:^(CMTime time){
         
         int currentTime = CMTimeGetSeconds(audioPlayer.currentTime);
         
@@ -183,7 +193,9 @@
     [audioPlayer removeTimeObserver:self.sliderObserver];
 }
 
-- (void) dealloc{
+- (void) stopPlaying{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     if (self.sliderObserver) {
         [self.audioPlayer removeTimeObserver:self.sliderObserver];
     }
@@ -191,6 +203,28 @@
         [self.audioPlayer removeTimeObserver:self.timeProgressObserver];
     }
     [self.audioPlayer removeObserver:self forKeyPath:@"status"];
+    
+    if (self.audioPlayer) {
+        [self.audioPlayer pause];
+        self.audioPlayer = nil;
+    }
+}
+
+- (void) dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    if (self.sliderObserver) {
+        [self.audioPlayer removeTimeObserver:self.sliderObserver];
+    }
+    if (self.timeProgressObserver) {
+        [self.audioPlayer removeTimeObserver:self.timeProgressObserver];
+    }
+    [self.audioPlayer removeObserver:self forKeyPath:@"status"];
+    
+    if (self.audioPlayer) {
+        [self.audioPlayer pause];
+        self.audioPlayer = nil;
+    }
 }
 
 @end
