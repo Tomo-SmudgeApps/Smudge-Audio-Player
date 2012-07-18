@@ -183,4 +183,14 @@
     [audioPlayer removeTimeObserver:self.sliderObserver];
 }
 
+- (void) dealloc{
+    if (self.sliderObserver) {
+        [self.audioPlayer removeTimeObserver:self.sliderObserver];
+    }
+    if (self.timeProgressObserver) {
+        [self.audioPlayer removeTimeObserver:self.timeProgressObserver];
+    }
+    [self.audioPlayer removeObserver:self forKeyPath:@"status"];
+}
+
 @end
